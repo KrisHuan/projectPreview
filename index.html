@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>预览</title>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <el-container>
+        <el-aside width="120px"
+          ><div class="menu_item">后台管理系统</div></el-aside
+        >
+        <el-container>
+          <el-main>
+            <div class="block">
+              <el-carousel height="660px" indicator-position="none">
+                <el-carousel-item v-for="item in imgs" :key="item.url">
+                  <div class="wrap">
+                    <div class="img"><img :src="item.url" /></div>
+                    <div class="title"><span> {{item.title}} </span></div>
+                  </div>
+                </el-carousel-item>
+              </el-carousel>
+            </div>
+          </el-main>
+        </el-container>
+      </el-container>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          imgs: [
+            { title: '模块1:登录页面', url: './images/login.png' },
+            { title: '模块2:首页页面1', url: './images/home1.png' },
+            { title: '模块2:首页页面2', url: './images/home2.png' },
+            { title: '模块3:角色列表页面', url: './images/rolelist.png' },
+            {
+              title: '模块4:角色列表页面-三级权限',
+              url: './images/rolelist_rights.png',
+            },
+            { title: '模块5:权限列表页面', url: './images/rightslist.png' },
+            {
+              title: '模块6:权限列表页面-编辑',
+              url: './images/rightslist.png',
+            },
+            { title: '模块6:商品列表页面', url: './images/goodslist.png' },
+            { title: '模块7:订单页面', url: './images/orderlist.png' },
+            {
+              title: '模块7:订单页面-物流进度',
+              url: './images/orderlist_express.png',
+            },
+          ],
+        },
+      });
+    </script>
+
+    <style>
+      .wrap {
+        position: relative;
+        height: 600px;
+        background-color: red;
+      }
+      .img {
+        height: 600px;
+      }
+      img {
+        width: 100%;
+      }
+      span {
+        background-color: rgba(154, 138, 138, 0.275);
+      }
+      .title {
+        width: 100%;
+        height: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        color: black;
+        font-size: 30px;
+        font-weight: bolder;
+        bottom: -30px;
+      }
+      .menu_item {
+        height: 30px;
+      }
+      .menu_item:hover {
+        cursor: pointer;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+      }
+      .el-container {
+        height: 100%;
+      }
+      .el-header,
+      .el-footer {
+        background-color: #b3c0d1;
+        color: #333;
+        text-align: center;
+        line-height: 60px;
+      }
+
+      .el-aside {
+        background-color: #d3dce6;
+        color: #333;
+        text-align: center;
+        line-height: 200px;
+      }
+
+      .el-main {
+        background-color: #e9eef3;
+        color: #333;
+        text-align: center;
+        line-height: 160px;
+      }
+    </style>
+  </body>
+</html>
